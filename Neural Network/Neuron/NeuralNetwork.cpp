@@ -23,6 +23,7 @@ Network::Network(std::initializer_list<u_int> layerCounts){
         layers.push_back(Layer(count, Neuron(prevCnt)));
         prevCnt = count;
     }
+    outSize = prevCnt;
 }
 
 void Network::feedForward(const vector<float>& input){
@@ -37,3 +38,15 @@ void Network::feedForward(const vector<float>& input){
             n.setActivation(prevLayer);
     }
 }
+
+float Network::cost(const vector<float>& answer){
+    if (answer.size() != outSize)
+        throw std::invalid_argument("Output size must be equal to answer size!");
+    float cost = 0;
+    for (u_int i = 0; i < outSize; i++) {
+        const float& n = layers.back()[i].getActivation();
+        const float& a = answer[i];
+        cost += (n - a) * (n - a);
+    }
+    return cost / outSize;
+};

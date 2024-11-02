@@ -14,10 +14,12 @@ using Layer = vector<Neuron>;
 class Network{
     vector<Layer> layers;
     u_int inputSize;
+    u_int outSize;
     
 public:
     Network(std::initializer_list<u_int> layerCounts);
     void feedForward(const vector<float>& input);
+    float cost(const vector<float>& answer);
 };
 
 #endif /* NeuralNetwork_hpp */
