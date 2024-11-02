@@ -6,9 +6,12 @@
 //
 
 #include <iostream>
+#include "Neuron/NeuralNetwork.hpp"
+
+
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    Network net = {5, 10, 3, 4, 1};
+    net.feedForward({0, 0, 1, 0, 1});
     return 0;
 }
