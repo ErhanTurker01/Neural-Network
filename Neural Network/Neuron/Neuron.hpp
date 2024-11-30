@@ -24,7 +24,7 @@ public:
     explicit Neuron(u_int con_size = 0);
     void setActivation(vector<float> activations);
     void setActivation(vector<Neuron> activations);
-    float getActivation();
+    float getActivation() const;
 };
 
 #endif /* Neuron_hpp */

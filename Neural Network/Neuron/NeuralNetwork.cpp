@@ -7,6 +7,11 @@
 
 #include "NeuralNetwork.hpp"
 
+Network::Network()
+    : layers(), inputSize(0), outSize(0)
+{
+    
+}
 Network::Network(std::initializer_list<u_int> layerCounts){
     if (layerCounts.size() < 2)
         throw std::invalid_argument("Need at least two layers!");
@@ -39,7 +44,7 @@ void Network::feedForward(const vector<float>& input){
     }
 }
 
-float Network::cost(const vector<float>& answer){
+float Network::cost(const vector<float>& answer) const{
     if (answer.size() != outSize)
         throw std::invalid_argument("Output size must be equal to answer size!");
     float cost = 0;

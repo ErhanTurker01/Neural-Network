@@ -18,8 +18,9 @@ class Network{
     
 public:
     Network(std::initializer_list<u_int> layerCounts);
+    Network();
     void feedForward(const vector<float>& input);
-    float cost(const vector<float>& answer);
+    virtual float cost(const vector<float>& answer) const;
 };
 
 #endif /* NeuralNetwork_hpp */

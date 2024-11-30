@@ -51,6 +51,6 @@ void Neuron::setActivation(vector<Neuron> activations){
     activation = sigmoid(activation);
 }
 
-float Neuron::getActivation(){
+float Neuron::getActivation() const{
     return activation;
 }
